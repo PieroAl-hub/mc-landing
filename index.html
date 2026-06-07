@@ -47,16 +47,13 @@
             background: #0f0f1a;
             padding: 15px 30px;
             border-radius: 8px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: #e09900;
             border: 1px solid #dc262659;
-            cursor: pointer;
-            transition: 0.3s;
             position: relative;
             font-family: 'Rajdhani', sans-serif;
         }
-        .ip-box:hover { border-color: #dc2626; background: #dc26261a; }
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -132,13 +129,8 @@
 </head>
 <body class="bg-grid">
     <div class="hero">
-        <h1><span>//</span> Minecraft <span>Hosting</span></h1>
-        <p>Servidores rápidos, estables y listos para jugar</p>
-        <div class="ip-box" onclick="copyIP()">119.96.29.129:25565</div>
-        <br><br>
-        <div style="position:relative;">
-            <span style="color:#64748b;font-size:0.9rem;">Panel exclusivo para clientes — contacto directo</span>
-        </div>
+        <h1>Minecraft <span>Hosting</span> <span style="font-size:1.2rem;color:#64748b;font-family:'DM Sans',sans-serif;">Guía</span></h1>
+        <p>Todo lo que necesitas saber para tu servidor</p>
     </div>
 
     <div class="container">
@@ -147,7 +139,7 @@
             <ol style="padding-left: 20px; color: #c0c8d8;">
                 <li>Abre Minecraft <strong>Java Edition</strong></li>
                 <li>Ve a <strong>Multijugador</strong> → <strong>Agregar Servidor</strong></li>
-                <li>Pon la IP: <code>119.96.29.129</code> y puerto <code>25565</code></li>
+                <li>Pon la IP y puerto que te hayan asignado</li>
                 <li>¡Listo! Disfruta</li>
             </ol>
         </div>
@@ -219,12 +211,7 @@
     </footer>
 
     <script>
-        function copyIP() {
-            navigator.clipboard.writeText("119.96.29.129:25565");
-            const box = document.querySelector(".ip-box");
-            box.textContent = "¡Copiado! 119.96.29.129:25565";
-            setTimeout(() => { box.innerHTML = "119.96.29.129:25565"; }, 2000);
-        }
+        // IP se entrega al cliente privadamente
     </script>
 </body>
 </html>
