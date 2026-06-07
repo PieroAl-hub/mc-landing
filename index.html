@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Hosting</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: #0a0a0f;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        .hero {
+            background: #0a0a0f;
+            text-align: center;
+            padding: 80px 20px 60px;
+            border-bottom: 1px solid #dc262626;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(220,38,38,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(220,38,38,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .hero h1 span { color: #dc2626; }
+        .hero p { color: #64748b; font-size: 1.2rem; position: relative; }
+        .ip-box {
+            display: inline-block;
+            margin-top: 20px;
+            background: #0f0f1a;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e09900;
+            border: 1px solid #dc262659;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .ip-box:hover { border-color: #dc2626; background: #dc26261a; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section {
+            background: #0f0f1ae6;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid #dc262626;
+            backdrop-filter: blur(24px);
+        }
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .section h3 { color: #fff; margin: 15px 0 8px; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; }
+        .section ul { padding-left: 20px; }
+        .section li { margin-bottom: 6px; color: #c0c8d8; }
+        .section ol li { margin-bottom: 8px; }
+        code {
+            background: #0f0f1a;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #e09900;
+            border: 1px solid #dc26261a;
+        }
+        .comandos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .comandos div {
+            background: #0f0f1a;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid #dc26261a;
+            transition: 0.2s;
+        }
+        .comandos div:hover { border-color: #dc262659; }
+        .comandos code { display: block; margin-bottom: 4px; color: #ef4444; border: none; background: transparent; padding: 0; }
+        .comandos span { font-size: 0.85rem; color: #64748b; }
+        .btn {
+            background: #dc2626;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        .btn:hover { background: #ef4444; transform: translateY(-1px); box-shadow: 0 0 20px rgba(220,38,38,0.3); }
+        .btn-gold { background: #e09900; color: #0a0a0f; }
+        .btn-gold:hover { background: #eebb33; box-shadow: 0 0 20px rgba(224,153,0,0.3); }
+        footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.85rem; border-top: 1px solid #dc262626; }
+        .gold { color: #e09900; }
+        .red { color: #dc2626; }
+        .bg-grid {
+            background-image: linear-gradient(rgba(220,38,38,0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(220,38,38,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        @media (max-width: 600px) {
+            .comandos { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body class="bg-grid">
+    <div class="hero">
+        <h1><span>//</span> Minecraft <span>Hosting</span></h1>
+        <p>Servidores rápidos, estables y listos para jugar</p>
+        <div class="ip-box" onclick="copyIP()">119.96.29.129:25565</div>
+        <br><br>
+        <div style="position:relative;">
+            <span style="color:#64748b;font-size:0.9rem;">Panel exclusivo para clientes — contacto directo</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Cómo conectarte</h2>
+            <ol style="padding-left: 20px; color: #c0c8d8;">
+                <li>Abre Minecraft <strong>Java Edition</strong></li>
+                <li>Ve a <strong>Multijugador</strong> → <strong>Agregar Servidor</strong></li>
+                <li>Pon la IP: <code>119.96.29.129</code> y puerto <code>25565</code></li>
+                <li>¡Listo! Disfruta</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Comandos Básicos</h2>
+            <p style="margin-bottom:15px;color:#64748b;">Escribe estos en el chat del juego si eres admin:</p>
+            <div class="comandos">
+                <div><code>/op &lt;jugador&gt;</code><span>Dar administrador</span></div>
+                <div><code>/deop &lt;jugador&gt;</code><span>Quitar admin</span></div>
+                <div><code>/gamemode creative</code><span>Modo creativo</span></div>
+                <div><code>/gamemode survival</code><span>Modo survival</span></div>
+                <div><code>/give &lt;jugador&gt; &lt;item&gt;</code><span>Darse ítems</span></div>
+                <div><code>/time set day</code><span>Poner de día</span></div>
+                <div><code>/weather clear</code><span>Quitar lluvia</span></div>
+                <div><code>/difficulty easy</code><span>Cambiar dificultad</span></div>
+                <div><code>/teleport &lt;jugador&gt;</code><span>Teletransportarse</span></div>
+                <div><code>/kick &lt;jugador&gt;</code><span>Expulsar jugador</span></div>
+                <div><code>/ban &lt;jugador&gt;</code><span>Banear jugador</span></div>
+                <div><code>/pardon &lt;jugador&gt;</code><span>Desbanear</span></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Instalar Mods / Plugins</h2>
+            <h3>Si el servidor usa Forge (mods):</h3>
+            <ul>
+                <li>Descarga los mods <code>.jar</code> (CurseForge, Modrinth)</li>
+                <li>Conéctate por SFTP (te damos los datos)</li>
+                <li>Sube los archivos a la carpeta <code>mods/</code></li>
+                <li>Reinicia el servidor</li>
+            </ul>
+            <h3>Si el servidor usa Paper/Spigot (plugins):</h3>
+            <ul>
+                <li>Descarga los plugins <code>.jar</code> (SpigotMC, Polymart)</li>
+                <li>Sube a <code>plugins/</code> por SFTP</li>
+                <li>Reinicia el servidor</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Minijuegos (Bedwars, Skywars...)</h2>
+            <ol style="padding-left: 20px; color: #c0c8d8;">
+                <li>El server debe ser <strong>Paper</strong> (no vanilla)</li>
+                <li>Descarga el plugin (ej: <strong>BedWars1058</strong>)</li>
+                <li>Súbelo a <code>plugins/</code> por SFTP</li>
+                <li>Reinicia y configura con <code>/bw setup</code></li>
+            </ol>
+            <p style="margin-top:10px;color:#64748b;">Plugins populares: BedWars1058, SkyWarsReloaded, TheBridge, MurderMystery</p>
+        </div>
+
+        <div class="section">
+            <h2>Acceso SFTP</h2>
+            <p style="color:#64748b;">Para subir archivos grandes o editar configs:</p>
+            <ul>
+                <li>Te damos usuario, contraseña y puerto SFTP</li>
+                <li>Conéctate con FileZilla, WinSCP o cualquier cliente</li>
+                <li>Ahí puedes subir mods, plugins, configs, etc.</li>
+            </ul>
+        </div>
+
+        <div style="text-align:center;margin:40px 0;color:#64748b;">
+            <p>¿Problemas? Contáctanos directamente</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Minecraft Hosting
+    </footer>
+
+    <script>
+        function copyIP() {
+            navigator.clipboard.writeText("119.96.29.129:25565");
+            const box = document.querySelector(".ip-box");
+            box.textContent = "¡Copiado! 119.96.29.129:25565";
+            setTimeout(() => { box.innerHTML = "119.96.29.129:25565"; }, 2000);
+        }
+    </script>
+</body>
+</html>
